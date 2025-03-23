@@ -1,0 +1,175 @@
+h1 {
+  font-size: 1.8em;
+  margin: 10px 0 0 0;
+}
+
+h1 + p,
+h2 + p {
+  margin: 8px 0 10px 0;
+}
+
+#install-button {
+  --button-color: var(--base-3);
+  --button-color-hover: var(--base-1);
+  --font-size: 1.2em;
+}
+
+@media all and (display-mode: standalone) {
+  #installation {
+    display: none;
+  }
+}
+
+.email-list {
+  max-width: 80ch;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-top: 12px;
+}
+
+.feature-grid::after {
+  content: "";
+  flex-basis: 21%;
+  /*flex-basis: 47%;*/
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 21%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feature a {
+  color: var(--base-font-color);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.feature aside {
+  display: flex;
+  min-height: 1.5rem;
+}
+
+.feature aside header {
+  font-size: 10px;
+  text-align: center;
+}
+
+.feature aside p {
+  display: none;
+}
+
+.feature material-button {
+  --icon-size: 3em;
+  --button-padding: 8px 12px 8px 12px;
+  --button-color: var(--base-3);
+  --button-color-hover: var(--base-1);
+  --border-radius: 8px;
+}
+
+.feature material-button img {
+  width: 1em;
+}
+
+.show-demo-info {
+  display: inline;
+}
+
+.hide-demo-info {
+  display: none;
+}
+
+body:has(.feature-grid.expanded) {
+  .show-demo-info {
+    display: none;
+  }
+  .hide-demo-info {
+    display: inline;
+  }
+}
+
+.feature-grid.expanded {
+  flex-direction: column;
+
+  .feature {
+    flex-direction: row;
+    flex-basis: 33%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100px;
+    margin-bottom: 0;
+
+    aside {
+      flex-direction: column;
+      margin-inline-start: 0.5em;
+      max-width: 37ch;
+
+      header {
+        font-size: 22px;
+        text-align: start;
+      }
+
+      p {
+        display: block;
+        font-size: 0.8em;
+        line-height: 1.1rem;
+        margin-block-start: 0.5em;
+        max-width: 45ch;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #expand-feature-grid {
+    display: none;
+  }
+
+  .feature-grid {
+    justify-content: flex-start;
+  }
+
+  .feature {
+    flex-direction: row;
+    flex-basis: 33%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .feature a {
+    display: flex;
+  }
+
+  .feature aside {
+    flex-direction: column;
+  }
+
+  .feature aside header {
+    font-size: 22px;
+    text-align: start;
+  }
+
+  .view .feature aside p {
+    display: block;
+    font-size: 0.8em;
+    line-height: 1.1rem;
+    margin-block-start: 0.5em;
+    max-width: 45ch;
+  }
+
+  .feature material-button {
+    --icon-size: 5em;
+    margin-right: 15px;
+  }
+}

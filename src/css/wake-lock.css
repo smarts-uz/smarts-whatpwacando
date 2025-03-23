@@ -1,0 +1,31 @@
+label {
+  display: flex;
+  padding-block: 4px;
+  width: fit-content;
+
+  input {
+    margin-right: 6px;
+  }
+}
+
+#restore-label {
+  position: relative;
+
+  &:after {
+    opacity: 0;
+    content: 'Wake lock restored';
+    position: absolute;
+    top: 0;
+    right: -55%;
+    color: green;
+    display: block;
+    border: 1px solid currentColor;
+    padding: 3px 4px;
+    border-radius: 4px;
+    transition: opacity 0.5s ease-in-out;
+  }
+}
+
+#restore-label.restored:after {
+  opacity: 1;
+}

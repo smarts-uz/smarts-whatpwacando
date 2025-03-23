@@ -1,0 +1,983 @@
+@supports (view-transition-name: content) {
+  :root {
+    --page-transition-animation-duration: 300ms;
+    --page-transition-animation-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  }
+
+  #main-footer {
+    contain: layout;
+    view-transition-name: main-footer;
+    z-index: 2;
+  }
+
+  ::view-transition-group(main-footer) {
+    z-index: 2;
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-20%);
+    }
+  }
+
+  @keyframes slide-out-reverse {
+    from {
+      transform: translateX(-20%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-reverse {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes flip {
+    from {
+      transform: translateX(0) rotateY(0deg);
+    }
+    to {
+      transform: translateX(-100%) rotateY(-180deg);
+    }
+  }
+
+  @keyframes flip-reverse {
+    from {
+      transform: translateX(0) rotateY(0deg);
+    }
+    to {
+      transform: translateX(100%) rotateY(180deg);
+    }
+  }
+
+  @keyframes scale-out {
+    from {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateZ(5000px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      transform: translateZ(-5000px);
+      opacity: 0;
+    }
+    to {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-out-reverse {
+    from {
+      transform: translateZ(5000px);
+      opacity: 0;
+    }
+    to {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in-reverse {
+    from {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateZ(-15000px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes opacity-front {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1
+    }
+    26% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes opacity-back {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 0
+    }
+    26% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-back {
+    from {
+      transform: translateZ(0);
+    }
+    to {
+      transform: translateZ(-5000px);
+    }
+  }
+
+  @keyframes scale-back-reverse {
+    from {
+      transform: translateZ(-5000px);
+    }
+    to {
+      transform: translateZ(0);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    material-radiobutton[value="slide"],
+    material-radiobutton[value="flip"] {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    ::view-transition-new(root),
+    ::view-transition-old(root) {
+      animation-duration: var(--page-transition-animation-duration);
+      animation-timing-function: var(--page-transition-animation-timing-function);
+      animation-direction: normal;
+    }
+
+    [data-transition="slide"]::view-transition-old(root) {
+      animation-name: slide-out;
+    }
+
+    [data-transition="slide"]::view-transition-new(root) {
+      animation-name: slide-in;
+      mix-blend-mode: normal;
+    }
+
+
+    [data-transition="slide"].back-transition::view-transition-new(root) {
+      animation-name: slide-out-reverse;
+    }
+
+    [data-transition="slide"].back-transition::view-transition-old(root) {
+      animation-name: slide-in-reverse;
+      mix-blend-mode: normal;
+      z-index: 1;
+    }
+
+    [data-transition="slide"].reload-transition::view-transition-new(root) {
+      animation-name: fade-in;
+      animation-duration: calc(2 * var(--page-transition-animation-duration));
+    }
+
+    [data-transition="slide"].reload-transition::view-transition-old(root) {
+      animation-name: fade-out;
+    }
+
+    /* FLIP */
+    [data-transition="flip"]::view-transition-group(root) {
+      perspective: 1000px;
+    }
+
+    [data-transition="flip"]::view-transition-image-pair(root) {
+      transform-style: preserve-3d;
+      transform-origin: center right;
+      animation-name: flip;
+    }
+
+    [data-transition="flip"]::view-transition-new(root),
+    [data-transition="flip"]::view-transition-old(root) {
+      mix-blend-mode: normal;
+      opacity: 1;
+    }
+
+    [data-transition="flip"]::view-transition-new(root) {
+      transform: rotateY(180deg);
+      animation-name: opacity-back;
+    }
+    [data-transition="flip"]::view-transition-old(root) {
+      animation-name: opacity-front;
+    }
+
+
+    [data-transition="flip"].back-transition::view-transition-image-pair(root) {
+      transform-origin: center left;
+      animation-name: flip-reverse;
+    }
+  }
+
+  /* SCALE */
+  [data-transition="scale"]::view-transition-image-pair(root) {
+    perspective: 10000px;
+  }
+
+  [data-transition="scale"]::view-transition-old(root) {
+    animation-name: scale-out;
+    z-index: 1;
+  }
+
+  [data-transition="scale"]::view-transition-new(root) {
+    animation-name: scale-in;
+  }
+
+  [data-transition="scale"].back-transition::view-transition-new(root) {
+    animation-name: scale-out-reverse;
+    z-index: 1;
+  }
+
+  [data-transition="scale"].back-transition::view-transition-old(root) {
+    animation-name: scale-in-reverse;
+    mix-blend-mode: normal;
+    z-index: 0;
+  }
+
+  /* SCALE-SLIDE */
+  [data-transition="scale-slide"]::view-transition-image-pair(root) {
+    perspective: 10000px;
+  }
+
+  [data-transition="scale-slide"]::view-transition-old(root) {
+    animation-name: scale-back;
+  }
+
+  [data-transition="scale-slide"]::view-transition-new(root) {
+    animation-name: slide-in;
+    animation-delay: calc(var(--page-transition-animation-duration) * .8);
+  }
+
+  [data-transition="scale-slide"].back-transition::view-transition-new(root) {
+    animation-name: scale-back-reverse;
+    animation-delay: calc(var(--page-transition-animation-duration) * .8);
+  }
+
+  [data-transition="scale-slide"].back-transition::view-transition-old(root) {
+    animation-name: slide-in-reverse;
+    mix-blend-mode: normal;
+    z-index: 1;
+  }
+
+  /* ENLARGING ICONS */
+  html[data-transition="icon-enlarge"] {
+    &::view-transition-group(main-footer) {
+      z-index: 1;
+    }
+
+    &::view-transition-old(main-footer),
+    &::view-transition-new(main-footer) {
+      animation-name: none;
+    }
+
+    #installation-demo,
+    #installation-demo-button {
+      view-transition-name: installation-demo;
+    }
+
+    #offline-support-demo,
+    #offline-support-demo-button {
+      view-transition-name: offline-support-demo;
+    }
+
+    #shortcuts-demo,
+    #shortcuts-demo-button {
+      view-transition-name: shortcuts-demo;
+    }
+
+    #media-demo,
+    #media-demo-button {
+      view-transition-name: media-demo;
+    }
+    #geolocation-demo,
+    #geolocation-demo-button {
+      view-transition-name: geolocation-demo;
+    }
+    #notifications-demo,
+    #notifications-demo-button {
+      view-transition-name: notifications-demo;
+    }
+    #view-transitions-demo,
+    #view-transitions-demo-button {
+      view-transition-name: view-transitions-demo;
+    }
+    #file-system-demo,
+    #file-system-demo-button {
+      view-transition-name: file-system-demo;
+    }
+    #authentication-demo,
+    #authentication-demo-button {
+      view-transition-name: authentication-demo;
+    }
+
+    #protocol-handling-demo,
+    #protocol-handling-demo-button {
+      view-transition-name: protocol-handling-demo;
+    }
+    #file-handling-demo,
+    #file-handling-demo-button {
+      view-transition-name: file-handling-demo;
+    }
+    #contacts-demo,
+    #contacts-demo-button {
+      view-transition-name: contacts-demo;
+    }
+    #web-share-demo,
+    #web-share-demo-button {
+      view-transition-name: web-share-demo;
+    }
+    #barcode-demo,
+    #barcode-demo-button {
+      view-transition-name: barcode-demo;
+    }
+    #face-detection-demo,
+    #face-detection-demo-button {
+      view-transition-name: face-detection-demo;
+    }
+    #vibration-demo,
+    #vibration-demo-button {
+      view-transition-name: vibration-demo;
+    }
+    #audio-recording-demo,
+    #audio-recording-demo-button {
+      view-transition-name: audio-recording-demo;
+    }
+    #audio-demo,
+    #audio-demo-button {
+      view-transition-name: audio-demo;
+    }
+    #audiosession-demo,
+    #audiosession-demo-button {
+      view-transition-name: audiosession-demo;
+    }
+    #capture-handle-demo,
+    #capture-handle-demo-button {
+      view-transition-name: capture-handle-demo;
+    }
+    #background-sync-demo,
+    #background-sync-demo-button {
+      view-transition-name: background-sync-demo;
+    }
+
+    #element-capture-demo,
+    #element-capture-demo-button {
+      view-transition-name: element-capture-demo;
+    }
+
+    #background-fetch-demo,
+    #background-fetch-demo-button {
+      view-transition-name: background-fetch-demo;
+    }
+    #storage-demo,
+    #storage-demo-button {
+      view-transition-name: storage-demo;
+    }
+    #bluetooth-demo,
+    #bluetooth-demo-button {
+      view-transition-name: bluetooth-demo;
+    }
+    #nfc-demo,
+    #nfc-demo-button {
+      view-transition-name: nfc-demo;
+    }
+    #ar-vr-demo,
+    #ar-vr-demo-button {
+      view-transition-name: ar-vr-demo;
+    }
+    #payment-demo,
+    #payment-demo-button {
+      view-transition-name: payment-demo;
+    }
+    #wake-lock-demo,
+    #wake-lock-demo-button {
+      view-transition-name: wake-lock-demo;
+    }
+    #device-orientation-demo,
+    #device-orientation-demo-button {
+      view-transition-name: device-orientation-demo;
+    }
+    #device-motion-demo,
+    #device-motion-demo-button {
+      view-transition-name: device-motion-demo;
+    }
+    #network-info-demo,
+    #network-info-demo-button {
+      view-transition-name: network-info-demo;
+    }
+    #speech-synthesis-demo,
+    #speech-synthesis-demo-button {
+      view-transition-name: speech-synthesis-demo;
+    }
+    #speech-recognition-demo,
+    #speech-recognition-demo-button {
+      view-transition-name: speech-recognition-demo;
+    }
+    #multi-touch-demo,
+    #multi-touch-demo-button {
+      view-transition-name: multi-touch-demo;
+    }
+
+    #main-footer {
+      view-transition-name: main-footer;
+    }
+  }
+
+   /*** OVERRIDES ***/
+  html, body {
+    height: auto;
+  }
+
+  #main-content {
+    height: auto;
+  }
+
+  #main-header, material-app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .view {
+    position: static;
+  }
+
+  .view::after {
+    display: none;
+  }
+
+  .view.next-screen {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .view.active + .view.next-screen,
+  .view.next-screen + .view.next-screen {
+    pointer-events: auto !important;
+  }
+
+  .view .content {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: auto;
+    overflow-y: unset;
+  }
+
+  .network-status {
+    top: 63px;
+  }
+
+
+  @keyframes ease-in-fade-in {
+    30% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  html:active-view-transition-type(expand-feature-grid) {
+    &::view-transition-group(*) {
+      animation-duration: 0.5s;
+    }
+
+    &::view-transition-group(.feature-button) {
+      z-index: 1;
+    }
+
+    &::view-transition-group(.feature-p) {
+      animation-name: ease-in-fade-in;
+      animation-duration: .7s;
+    }
+
+    &::view-transition-old(root),
+    &::view-transition-new(root) {
+      animation-name: none;
+    }
+
+    .show-demo-info {
+      view-transition-name: show-demo-info;
+    }
+
+    .hide-demo-info {
+      view-transition-name: hide-demo-info;
+    }
+
+    .feature header {
+      width: fit-content;
+    }
+
+    .feature material-button {
+      view-transition-class: feature-button;
+    }
+
+    .feature p {
+      view-transition-class: feature-p;
+    }
+
+    #installation-demo-button {
+      material-button {
+        view-transition-name: installation-button;
+      }
+      header {
+        view-transition-name: installation-header;
+      }
+      p {
+        view-transition-name: installation-p;
+
+      }
+    }
+
+    #offline-support-demo-button {
+      material-button {
+        view-transition-name: offline-support-button;
+      }
+      header {
+        view-transition-name: offline-support-header;
+      }
+      p {
+        view-transition-name: offline-support-p;
+      }
+    }
+
+    #notifications-demo-button {
+      material-button {
+        view-transition-name: notifications-button;
+      }
+      header {
+        view-transition-name: notifications-header;
+      }
+      p {
+        view-transition-name: notifications-p;
+      }
+    }
+
+    #shortcuts-demo-button {
+      material-button {
+        view-transition-name: shortcuts-button;
+      }
+      header {
+        view-transition-name: shortcuts-header;
+      }
+      p {
+        view-transition-name: shortcuts-p;
+      }
+    }
+
+    #view-transitions-demo-button {
+      material-button {
+        view-transition-name: view-transitions-button;
+      }
+      header {
+        view-transition-name: view-transitions-header;
+      }
+      p {
+        view-transition-name: view-transitions-p;
+      }
+    }
+
+    #geolocation-demo-button {
+      material-button {
+        view-transition-name: geolocation-button;
+      }
+      header {
+        view-transition-name: geolocation-header;
+      }
+      p {
+        view-transition-name: geolocation-p;
+      }
+    }
+
+    #media-demo-button {
+      material-button {
+        view-transition-name: media-capture-button;
+      }
+      header {
+        view-transition-name: media-capture-header;
+      }
+      p {
+        view-transition-name: media-capture-p;
+      }
+    }
+
+    #pip-demo-button {
+      material-button {
+        view-transition-name: picture-in-picture-button;
+      }
+      header {
+        view-transition-name: picture-in-picture-header;
+      }
+      p {
+        view-transition-name: picture-in-picture-p;
+      }
+    }
+
+    #file-system-demo-button {
+      material-button {
+        view-transition-name: file-system-button;
+      }
+      header {
+        view-transition-name: file-system-header;
+      }
+      p {
+        view-transition-name: file-system-p;
+      }
+    }
+
+    #authentication-demo-button {
+      material-button {
+        view-transition-name: authentication-button;
+      }
+      header {
+        view-transition-name: authentication-header;
+      }
+      p {
+        view-transition-name: authentication-p;
+      }
+    }
+
+    #protocol-handling-demo-button {
+      material-button {
+        view-transition-name: protocol-handling-button;
+      }
+      header {
+        view-transition-name: protocol-handling-header;
+      }
+      p {
+        view-transition-name: protocol-handling-p;
+      }
+    }
+
+    #file-handling-demo-button {
+      material-button {
+        view-transition-name: file-handling-button;
+      }
+      header {
+        view-transition-name: file-handling-header;
+      }
+      p {
+        view-transition-name: file-handling-p;
+      }
+    }
+
+    #contacts-demo-button {
+      material-button {
+        view-transition-name: contacts-button;
+      }
+      header {
+        view-transition-name: contacts-header;
+      }
+      p {
+        view-transition-name: contacts-p;
+      }
+      }
+
+    #web-share-demo-button {
+      material-button {
+        view-transition-name: web-share-button;
+      }
+      header {
+        view-transition-name: web-share-header;
+      }
+      p {
+        view-transition-name: web-share-p;
+      }
+    }
+
+    #barcode-demo-button {
+      material-button {
+        view-transition-name: barcode-button;
+      }
+      header {
+        view-transition-name: barcode-header;
+      }
+      p {
+        view-transition-name: barcode-p;
+      }
+    }
+
+    #face-detection-demo-button {
+      material-button {
+        view-transition-name: face-detection-button;
+      }
+      header {
+        view-transition-name: face-detection-header;
+      }
+      p {
+        view-transition-name: face-detection-p;
+      }
+    }
+
+    #vibration-demo-button {
+      material-button {
+        view-transition-name: vibration-button;
+      }
+      header {
+        view-transition-name: vibration-header;
+      }
+      p {
+        view-transition-name: vibration-p;
+      }
+    }
+
+    #audio-recording-demo-button {
+      material-button {
+        view-transition-name: audio-recording-button;
+      }
+      header {
+        view-transition-name: audio-recording-header;
+      }
+      p {
+        view-transition-name: audio-recording-p;
+      }
+    }
+
+    #audio-demo-button {
+      material-button {
+        view-transition-name: audio-button;
+      }
+      header {
+        view-transition-name: audio-header;
+      }
+      p {
+        view-transition-name: audio-p;
+      }
+    }
+
+    #audiosession-demo-button {
+      material-button {
+        view-transition-name: audiosession-button;
+      }
+      header {
+        view-transition-name: audiosession-header;
+      }
+      p {
+        view-transition-name: audiosession-p;
+      }
+    }
+
+    #capture-handle-demo-button {
+      material-button {
+        view-transition-name: capture-handle-button;
+      }
+      header {
+        view-transition-name: capture-handle-header;
+      }
+      p {
+        view-transition-name: capture-handle-p;
+      }
+    }
+
+    #element-capture-demo-button {
+      material-button {
+        view-transition-name: element-capture-button;
+      }
+      header {
+        view-transition-name: element-capture-header;
+      }
+      p {
+        view-transition-name: element-capture-p;
+      }
+    }
+
+    #background-sync-demo-button {
+      material-button {
+        view-transition-name: background-sync-button;
+      }
+      header {
+        view-transition-name: background-sync-header;
+      }
+      p {
+        view-transition-name: background-sync-p;
+      }
+    }
+
+    #background-fetch-demo-button {
+      material-button {
+        view-transition-name: background-fetch-button;
+      }
+      header {
+        view-transition-name: background-fetch-header;
+      }
+      p {
+        view-transition-name: background-fetch-p;
+      }
+    }
+
+    #storage-demo-button {
+      material-button {
+        view-transition-name: storage-button;
+      }
+      header {
+        view-transition-name: storage-header;
+      }
+      p {
+        view-transition-name: storage-p;
+      }
+    }
+
+    #bluetooth-demo-button {
+      material-button {
+        view-transition-name: bluetooth-button;
+      }
+      header {
+        view-transition-name: bluetooth-header;
+      }
+      p {
+        view-transition-name: bluetooth-p;
+      }
+    }
+
+    #nfc-demo-button {
+      material-button {
+        view-transition-name: nfc-button;
+      }
+      header {
+        view-transition-name: nfc-header;
+      }
+      p {
+        view-transition-name: nfc-p;
+      }
+    }
+
+    #ar-vr-demo-button {
+      material-button {
+        view-transition-name: ar-vr-button;
+      }
+      header {
+        view-transition-name: ar-vr-header;
+      }
+      p {
+        view-transition-name: ar-vr-p;
+      }
+    }
+
+    #payment-demo-button {
+      material-button {
+        view-transition-name: payment-button;
+      }
+      header {
+        view-transition-name: payment-header;
+      }
+      p {
+        view-transition-name: payment-p;
+      }
+      }
+
+    #wake-lock-demo-button {
+      material-button {
+        view-transition-name: wake-lock-button;
+      }
+      header {
+        view-transition-name: wake-lock-header;
+      }
+      p {
+        view-transition-name: wake-lock-p;
+      }
+    }
+
+    #device-orientation-demo-button {
+      material-button {
+        view-transition-name: device-orientation-button;
+      }
+      header {
+        view-transition-name: device-orientation-header;
+      }
+      p {
+        view-transition-name: device-orientation-p;
+      }
+    }
+
+    #device-motion-demo-button {
+      material-button {
+        view-transition-name: device-motion-button;
+      }
+      header {
+        view-transition-name: device-motion-header;
+      }
+      p {
+        view-transition-name: device-motion-p;
+      }
+    }
+
+    #network-info-demo-button {
+      material-button {
+        view-transition-name: network-info-button;
+      }
+      header {
+        view-transition-name: network-info-header;
+      }
+      p {
+        view-transition-name: network-info-p;
+      }
+    }
+
+    #speech-synthesis-demo-button {
+      material-button {
+        view-transition-name: speech-synthesis-button;
+      }
+      header {
+        view-transition-name: speech-synthesis-header;
+      }
+      p {
+        view-transition-name: speech-synthesis-p;
+      }
+    }
+
+    #speech-recognition-demo-button {
+      material-button {
+        view-transition-name: speech-recognition-button;
+      }
+      header {
+        view-transition-name: speech-recognition-header;
+      }
+      p {
+        view-transition-name: speech-recognition-p;
+      }
+    }
+
+    #multi-touch-demo-button {
+      material-button {
+        view-transition-name: multi-touch-button;
+      }
+      header {
+        view-transition-name: multi-touch-header;
+      }
+      p {
+        view-transition-name: multi-touch-p;
+      }
+    }
+  }
+}

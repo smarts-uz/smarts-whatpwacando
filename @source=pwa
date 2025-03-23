@@ -1,0 +1,1378 @@
+
+<!DOCTYPE html>
+<html lang="en" data-transition="slide" ssg>
+  <head data-version="307">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="pwa-tools-verification" content="dkdhRnFTZ1NmRFVtRmpraW0yVWd1cS9sR3BQNzlQeXhYQnRNR04vUURVUT0">
+    <meta name="app-title" content="">
+    <title>What PWA Can Do Today</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="src/lib/gtag.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VTKNPJ5HVC');
+    </script>
+    
+
+    <meta property="og:title" content="What PWA Can Do Today">
+    <meta property="og:description" content="A showcase of what is possible with Progressive Web Apps today.">
+    <meta property="og:image" content="https://whatpwacando.today/src/img/social-logo.png">
+    <meta property="og:url" content="https://whatpwacando.today">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="Author" content="Danny Moerkerke">
+    
+    <!-- tabbed display mode -->
+    <meta http-equiv="origin-trial" content="AoIGzgmzMUG9DsPZtn7kRZdSmF+BekgqhBlvzekLZKXJVIt0hxa+rHV1zfsflXCSPFMYPFEhoVHsxUAHOaOHCAEAAABteyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiV2ViQXBwVGFiU3RyaXAiLCJleHBpcnkiOjE3MjI5ODg3OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+
+    <!-- captured surface control -->
+    <meta http-equiv="origin-trial" content="ApmGS/vR7zZSNNm7EDAbNE6peAF/JQaml+WcxxXMhXop9p+Q0OmKVfhwgyBW+PtzR6tubbqlUKifQB8FPM0DTQUAAAB1eyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiQ2FwdHVyZWRTdXJmYWNlQ29udHJvbCIsImV4cGlyeSI6MTczMzE4NDAwMCwiaXNTdWJkb21haW4iOnRydWV9">
+
+    <!-- element capture -->
+    <meta http-equiv="origin-trial" content="AqrvJYyPNio2a9eCvBLYkdyjsfizuZtnf0yQjflfSlaGT5jmWkuITrWFUyh2aBTdTI32YaIJwJLadVBugzXbAwgAAABaeyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiRWxlbWVudENhcHR1cmUiLCJleHBpcnkiOjE3NDIzNDIzOTl9">
+
+    <!-- optional since iOS 11.3, replaced with display: standalone in manifest, still needed to display startup images -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/src/img/icons/browserconfig.xml">
+
+    <link rel="preconnect" href="../https@www.google-analytics.com/default.htm">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- iOS icons, needed before iOS 15.4, still override icons in manifest -->
+    <link rel="apple-touch-icon" href="src/img/pwa/apple-icon-180.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="src/img/icons/favicon-32.png">
+
+    <!-- Apple splash screen images -->
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2732-2048.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1668-2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2388-1668.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1536-2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2048-1536.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1668-2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2224-1668.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1620-2160.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2160-1620.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1290-2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2796-1290.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1179-2556.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2556-1179.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1284-2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2778-1284.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1170-2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2532-1170.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2436-1125.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1242-2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2688-1242.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-828-1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1792-828.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1242-2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-2208-1242.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1334-750.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-1136-640.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
+    <!-- Apple splash screen images dark mode-->
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2048-2732.png" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2732-2048.png" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1668-2388.png" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2388-1668.png" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1536-2048.png" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2048-1536.png" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1668-2224.png" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2224-1668.png" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1620-2160.png" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2160-1620.png" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1290-2796.png" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2796-1290.png" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1179-2556.png" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2556-1179.png" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1284-2778.png" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2778-1284.png" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1170-2532.png" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2532-1170.png" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1125-2436.png" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2436-1125.png" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1242-2688.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2688-1242.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-828-1792.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1792-828.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1242-2208.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-2208-1242.png" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-750-1334.png" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1334-750.png" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-640-1136.png" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="src/img/pwa/apple-splash-dark-1136-640.png" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
+    <style>
+      :root {
+        --footer-content-direction: column;
+        --footer-justify-content: space-evenly;
+        --footer-align-text: flex-start;
+        --p-font-size: 1.2em;
+        --h1-font-size: 2em;
+        --h2-font-size: 1.6em;
+        --h3-font-size: 1.3em;
+        --main-background: #ffffff;
+
+        --base-1: #8cc7fa;
+        --base-2: #f5f8fa;
+        --base-3: #c3e0f9;
+        --base-font-family: 'system-ui', "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --base-font-color: #3a4145;
+        --base-link-color: #697c95;
+        --footer-font-color: #ffffff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --main-background: #1e1e1e;
+          --base-font-color: #eaeaea;
+          --base-1: #697c95;
+          --base-2: #f5f8fa;
+          --base-3: #7a8fa8;
+          --base-link-color: #aac1da;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        :root {
+          --footer-content-direction: row;
+          --footer-justify-content: space-between;
+          --footer-align-text: center;
+          --p-font-size: 1.2em;
+          --h1-font-size: 3em;
+          --h2-font-size: 1.5em;
+          --h3-font-size: 1.17em;
+        }
+      }
+
+
+      html, body {
+        min-height: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: var(--base-font-family);
+        color: var(--base-font-color);
+        background-color: var(--main-background);
+      }
+
+      html {
+        min-height: 100%;
+        height: 100%;
+      }
+
+      body {
+        /*min-height: 100%;*/
+        height: 100%;
+      }
+
+      main {
+        display: flex;
+        height: 100%;
+        max-height: 100%;
+        flex-direction: column;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      #main-header {
+        display: flex;
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid #cccccc;
+        background: var(--main-background);
+      }
+
+      #main-header .logo {
+        grid-column: 1 / 2;
+        width: 70px;
+        margin-left: 20px;
+        align-self: center;
+      }
+
+      #main-content {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        flex-grow: 1;
+      }
+      #main-footer {
+        display: flex;
+        justify-content: center;
+        background: var(--base-1);
+        padding: 10px 15px 10px 15px;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .network-status {
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        transition: height .2s ease-out;
+      }
+      .network-status.offline {
+        height: 63px;
+      }
+      .network-status header {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 15px 0 0 15px;
+        width: 100%;
+        color: #ff0000;
+      }
+      .network-status p {
+        margin: 0;
+        padding: 0 15px;
+      }
+      .network-status i.material-icons {
+        font-size: 2.3em;
+      }
+
+      material-app-bar [slot="right-content"] {
+        display: none;
+        color: #ff0000 !important;
+      }
+
+      @supports (padding: max(0px)) {
+        #main-footer {
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+      }
+
+      #main-footer .content {
+        color: var(--footer-font-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom: 10px;
+      }
+      
+      @media (min-width: 1200px) {
+        #main-footer .content {
+          width: 90%;
+        }
+      }
+
+      #main-footer .material-icons {
+        font-size: 32px;
+      }
+
+      #main-footer .content a,
+      #main-footer .content a:hover,
+      #main-footer .content a:visited {
+        color: var(--footer-font-color);
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 52px;
+      }
+
+      #main-footer .content a span {
+        font-size: 12px;
+      }
+
+      #main-footer .content li {
+        list-style-type: none;
+        font-size: 2em;
+        line-height: 1;
+        display: inline-block;
+        margin-bottom: 0;
+      }
+
+      #main-footer p {
+        margin: 0;
+        align-self: var(--footer-align-text);
+      }
+
+      .view .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 15px;
+        height: 1px;
+        overflow-y: auto;
+      }
+
+      dialog {
+        border: none;
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.24),0 -2px 0 #eeeeee;
+      }
+
+      #install-dialog,
+      #sensor-dialog,
+      #geolocation-dialog {
+        box-sizing: border-box;
+        width: 80%;
+        height: 80%;
+        padding-top: 4px;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+      }
+
+      #install-dialog {
+        transform: translateY(100%);
+        transition: transform .3s ease-out;
+        box-shadow: none;
+        width: 100vw;
+        max-width: 100vw;
+        height: 75%;
+        margin: 0;
+        top: auto;
+        border-radius: 10px 10px 0 0;
+      }
+
+      #install-dialog[opened] {
+        transform: translateY(0%);
+      }
+
+      @media (min-width: 1024px) {
+        #install-dialog {
+          margin: 0 auto;
+          top: 5%;
+          transform: translateY(-10%);
+          opacity: 0;
+          transition: transform .3s ease-out, opacity .3s ease-out;
+        }
+
+        #install-dialog[opened] {
+          opacity: 1;
+        }
+      }
+
+      #install-dialog header img {
+        width: 60px;
+      }
+
+      #install-dialog header {
+        padding-block: .5rem;
+      }
+
+      #install-dialog header div.heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding-inline: 1rem;
+      }
+
+      #install-dialog header span:first-child {
+        font-weight: bold;
+        line-height: 26px;
+      }
+
+      #install-dialog header span:last-child {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      #install-dialog header div.close {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+      }
+
+      #install-dialog button img {
+        width: 18px;
+      }
+
+      #install-dialog button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border: none;
+        border-radius: 50%;
+        background-color: #c5c1c6;
+      }
+
+      #install-dialog #back-button {
+        transform: rotateY(180deg);
+      }
+
+      #install-dialog ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 2rem;
+      }
+
+      #install-dialog ul li {
+        display: flex;
+        align-items: center;
+        padding: .5rem 0;
+      }
+
+      #install-dialog ul li img {
+        padding-inline: .5rem;
+        width: 24px;
+      }
+
+      #install-dialog .screenshots,
+      #install-dialog .screenshots .scroll-div {
+        width: 100%;
+        overflow: auto;
+        position: relative;
+      }
+
+      #install-dialog .screenshots .scroll-div div {
+        display: flex;
+        gap: 1rem;
+      }
+
+      #install-dialog .screenshots :is(.back, .forward) {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+      }
+
+      #install-dialog .screenshots .back {
+        left: 8px;
+        z-index: 1;
+      }
+
+      #install-dialog .screenshots .forward {
+        right: 8px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        #install-dialog .screenshots :is(.back, .forward) {
+          display: none;
+        }
+      }
+
+      #install-dialog .screenshots img {
+        height: 250px;
+      }
+
+      #install-dialog .screenshots img.wide {
+        display: none;
+      }
+
+      @media screen and (min-width: 1024px) {
+        #install-dialog,
+        #sensor-dialog,
+        #geolocation-dialog {
+          width: fit-content;
+        }
+
+        #install-dialog .screenshots img.narrow {
+          display: none;
+        }
+        #install-dialog .screenshots img.wide {
+          display: block;
+        }
+      }
+
+      #sensor-dialog::backdrop,
+      #geolocation-dialog::backdrop {
+        background-color: #cccccc;
+        opacity: 0.5;
+      }
+
+      #install-dialog::backdrop {
+        background-color: transparent;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: hidden;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) header {
+        justify-self: flex-start;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #bababa;
+      }
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) footer {
+        justify-self: flex-end;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+        border-top: 1px solid #cccccc;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) .body {
+        flex: 1 1 auto;
+        height: 0;
+        overflow-y: scroll;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) header h2 {
+        margin: 0;
+        font-weight: normal;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) picture img {
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.24),0 -2px 0 #eeeeee;
+      }
+
+      :is(#install-dialog, #sensor-dialog, #geolocation-dialog) picture + p {
+        margin-top: 2.5rem;
+      }
+
+      material-bottom-sheet {
+        display: none;
+        user-select: none;
+        -webkit-user-select: none;
+        --header-background: var(--main-background);
+        --body-background: var(--main-background);
+        --footer-background: var(--main-background);
+      }
+
+      material-dialog {
+        --header-background: var(--main-background);
+        --body-background: var(--main-background);
+        --footer-background: var(--main-background);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        material-dialog {
+          --header-background: var(--base-1);
+        }
+      }
+
+      material-button {
+        --font-color: var(--base-font-color);
+        --button-color: var(--base-3);
+      }
+
+      material-textfield {
+        --font-color: var(--base-font-color);
+        --active-color: var(--base-font-color);
+      }
+    </style>
+
+    <link rel="stylesheet" href="src/css/styles.css">
+    <script>
+      const handleInstallPrompt = e => {
+        e.preventDefault();
+
+        window.deferredPrompt = e;
+      };
+
+      window.addEventListener('beforeinstallprompt', handleInstallPrompt);
+    </script>
+    
+    
+<script type="module">
+  import '_40dannymoerkerke/material-webcomponents/src/material-button.js';
+import 'src/elements/form-field.js';
+
+
+</script>
+    
+  </head>
+  <body>
+    <main>
+      <section id="main-content">
+
+<div class="view home" data-view="/">
+  <header id="main-header">
+    <img class="logo" src="src/img/pwalogo.svg">
+  </header>
+  <div class="network-status">
+    <header>
+      <i class="material-icons" translate="no">wifi_off</i>
+      <p>Your device is currently offline.</p>
+    </header>
+  </div>
+  <div class="content">
+    <h1>What PWA Can Do Today</h1>
+    <p>
+      A showcase of what is possible with Progressive Web Apps today. 
+    </p>
+    <p>
+      A Progressive Web App (PWA) is a website that can be installed on your device and provide an app-like experience 
+      <a href="info">read more</a>
+    </p>
+    
+    <section id="installation">
+      <h2>How to use this app</h2>
+    
+      <p>
+        This app is itself a PWA so you can install it on your device and then check the <a href="#demos">demos</a> below to see what is supported on your device.
+      </p>
+      
+      <p>
+        When the button below becomes enabled, you can install this app.
+      </p>
+      
+      <p>
+        <material-button id="install-button" label="Install to home screen" raised>
+          <i class="material-icons" translate="no" slot="left-icon">add_to_home_screen</i>
+        </material-button>
+      </p>
+    </section>
+    
+    <h2>Stay up to date</h2>
+    <p>
+      Join my email list for a weekly update on PWAs and new features of the modern web, tested and explained in plain 
+      English.
+    </p>
+
+    <iframe 
+        src="../https@modernwebweekly.substack.com/embed" 
+        width="480" 
+        height="160" 
+        style="background: #ffffff;" frameborder="0" scrolling="no"></iframe>
+
+    <h2>Need help?</h2>
+    <p>
+      If you run into issues when implementing a PWA I can help by running an <a href="audit">audit</a> of it.
+    </p>
+    
+    <h2 id="demos">Demos</h2>
+    
+    <section id="installed">
+      <p>
+        Check the demos to see what is supported on your device.
+      </p>
+      <a id="expand-feature-grid">
+        <span class="show-demo-info">Show demo info</span>
+        <span class="hide-demo-info">Hide demo info</span>
+      </a>
+    </section>
+    
+    <section class="feature-grid">
+      <div class="feature" id="installation-demo-button">
+        <a href="installation">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">install_mobile</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Installation</header>
+          <p>Using the beforeinstallprompt event, a native dialog can be displayed to install a web app</p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="offline-support-demo-button">
+        <a href="offline-support">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">download_for_offline</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Offline support</header>
+          <p>The Service Worker enables web apps to work offline</p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="notifications-demo-button">
+        <a href="notifications">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">notifications_none</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Notifications</header>
+          <p>
+            The Notifications API enables web apps to display notifications, even when the app is not active.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="shortcuts-demo-button">
+        <a href="shortcuts">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">app_shortcut</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Shortcuts</header>
+          <p>
+            Shortcuts provide quick access to pages in your app from the app icon.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="view-transitions-demo-button">
+        <a href="view-transitions">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">auto_awesome_motion</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>View Transitions</header>
+          <p>
+            The View Transitions API enables app-like transitions between pages.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="geolocation-demo-button">
+        <a href="geolocation">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">gps_fixed</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Geolocation</header>
+          <p>
+            The Geolocation API enables users to share their location with web apps .
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="media-demo-button">
+        <a href="media">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">videocam</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Media capture</header>
+          <p>Media capture allows web apps to use the camera and microphone of a device</p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="pip-demo-button">
+        <a href="pip">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">picture_in_picture</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Picture-in-picture</header>
+          <p>The Document Picture-in-Picture API makes it possible to open an always-on-top window that can be populated 
+          with arbitrary HTML content</p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="file-system-demo-button">
+        <a href="file-system">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">insert_drive_file</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>File System</header>
+          <p>
+            Access to the file system of the user's device
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="authentication-demo-button">
+        <a href="authentication">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">fingerprint</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Authentication</header>
+          <p>
+            Web Authentication API (WebAuthn) enables passwordless authentication through your device's fingerprint 
+            reader or an external USB Security Key.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="protocol-handling-demo-button">
+        <a href="protocol-handling">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">language</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Protocol Handling</header>
+          <p>
+            Protocol handling enables web apps to register their ability to open links with particular URL schemes.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="file-handling-demo-button">
+        <a href="file-handling">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">folder_open</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>File Handling API</header>
+          <p>
+            The File Handling API enables web apps to register as file handlers with the operating system
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="contacts-demo-button">
+        <a href="contacts">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">account_box</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Contact picker</header>
+          <p>
+            The Contact Picker API allows web apps to select the user's contacts after permission has been granted.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="web-share-demo-button">
+        <a href="web-share">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">share</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Web share</header>
+          <p>
+            The Web Share API invokes the native share mechanism of the device and allows users to share 
+            text, URLs or files.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="barcode-demo-button">
+        <a href="barcode">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">qr_code_scanner</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Barcode detection</header>
+          <p>
+            The Barcode Detection API detects barcodes and qr-codes in images.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="face-detection-demo-button">
+        <a href="face-detection">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">face</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Face detection</header>
+          <p>
+            The Shape Detection API detects faces in images.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="vibration-demo-button">
+        <a href="vibration">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">vibration</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Vibration</header>
+          <p>
+            The Vibration API enables web apps to make a mobile device vibrate.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="audio-recording-demo-button">
+        <a href="audio-recording">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">mic</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Audio recording</header>
+          <p>
+            Record audio using MediaRecorder and visualize audio using Web Audio API.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="audio-demo-button">
+        <a href="audio">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">play_circle_filled</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Audio</header>
+          <p>
+            The Media Session API allows web apps to display controls for media playback on a device's lock screen.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="audiosession-demo-button">
+        <a href="audiosession">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">tune</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Audio Session API</header>
+          <p>
+            The Audio Session API configures how audio from web apps should mix with audio from native apps.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="capture-handle-demo-button">
+        <a href="capture-handle">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">screen_share</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Screen Capturing</header>
+          <p>
+            Capture Handle and Captured Surface Control enable screen capturing web apps to remotely control captured web apps.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="element-capture-demo-button">
+        <a href="element-capture">
+          <material-button>
+            <img src="src/img/icons/element-capture.svg" alt="element capture icon" slot="left-icon">
+          </material-button>
+        </a>
+        <aside>
+          <header>Element Capture</header>
+          <p>
+            Element Capture enables screen capturing web apps to record specific HTML elements.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="background-sync-demo-button">
+        <a href="background-sync">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">sync</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Background Sync API</header>
+          <p>
+            The Background Sync API enables web apps to defer tasks when it's offline so they can be run when the network 
+            connection is restored.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="background-fetch-demo-button">
+        <a href="background-fetch">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">downloading</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Background Fetch API</header>
+          <p>
+            The Background Fetch API enables web apps to download large files in the background even when the app is 
+            running.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="storage-demo-button">
+        <a href="storage">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">inventory</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Storage API</header>
+          <p>
+            The Storage API enables web apps to persist structured data in the user's browser.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="bluetooth-demo-button">
+        <a href="bluetooth">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">bluetooth</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Bluetooth</header>
+          <p>
+            The Web Bluetooth API enables web apps to connect to Bluetooth Low Energy (BLE) devices and read values from or 
+            write values to it.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="nfc-demo-button">
+        <a href="nfc">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">nfc</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>NFC</header>
+          <p>
+            The Web NFC API enables web apps to read and write to NFC tags.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="ar-vr-demo-button">
+        <a href="ar-vr">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">layers</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>AR/VR</header>
+          <p>
+            Augmented reality enables web apps to place virtual objects in reality.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="payment-demo-button">
+        <a href="payment">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">credit_card</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Payment</header>
+          <p>
+            The Payment Request API provides a browser-based method to enable users to make payments on the web, using a credit 
+            card, Apple Pay or Google Pay.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="wake-lock-demo-button">
+        <a href="wake-lock">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">screen_lock_portrait</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Wake lock</header>
+          <p>
+            The Screen Wake Lock API enables web apps to prevent devices from dimming or locking the screen when the app 
+            needs to keep running.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="device-orientation-demo-button">
+        <a href="device-orientation">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">screen_rotation</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Orientation</header>
+          <p>
+            The DeviceOrientationEvent gives information about the physical orientation of the user's device.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="device-motion-demo-button">
+        <a href="device-motion">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">3d_rotation</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Motion</header>
+          <p>
+            The DeviceMotionEvent gives information about the speed of changes for the position and orientation of 
+            the user's device.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="network-info-demo-button">
+        <a href="network-info">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">network_check</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Network info</header>
+          <p>
+            The NetworkInformation API provides information about the connection of a device, allowing web apps to adapt 
+            functionality based on network quality.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="speech-synthesis-demo-button">
+        <a href="speech-synthesis">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">record_voice_over</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Speech synthesis</header>
+          <p>
+            Speech synthesis provides text-to-speech and allows programs to read out their text content.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="speech-recognition-demo-button">
+        <a href="speech-recognition">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">hearing</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Speech recognition</header>
+          <p>
+            Speech recognition is part of the Web Speech API and provides the ability to recognize voice context from an 
+            audio input.
+          </p>
+        </aside>
+      </div>
+      
+      <div class="feature" id="multi-touch-demo-button">
+        <a href="multi-touch">
+          <material-button>
+              <i class="material-icons" translate="no" slot="left-icon">touch_app</i>
+          </material-button>
+        </a>
+        <aside>
+          <header>Multi touch</header>
+          <p>
+            Touch events enable web apps to capture complex touch behaviour.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </div>
+</div>
+
+  </section>
+
+      <footer id="main-footer">
+        <section class="content">
+          <a href="default.htm">
+            <i class="material-icons" translate="no">home</i>
+            <span>Home</span>
+          </a>
+          <a href="audit">
+            <i class="material-icons" translate="no">task</i>
+            <span>Audit</span>
+          </a>
+          <a href="email-list">
+            <i class="material-icons" translate="no">email</i>
+            <span>Email list</span>
+          </a>
+          <a href="../https@github.com/DannyMoerkerke/whatpwacando.today" target="_blank">
+            <li class="ion-social-github" data-pack="social" data-tags="connect"></li>
+            <span>Bugs</span>
+          </a>
+          <a>
+            <i class="material-icons" translate="no" id="reload">refresh</i>
+            <span>Reload</span>
+          </a>
+        </section>
+      </footer>
+    </main>
+
+    <dialog id="install-dialog">
+      <section>
+        <header>
+          <img src="src/img/pwalogo.webp">
+          <div class="heading">
+            <span>What PWA Can Do Today</span>
+            <span>A showcase of what is possible with Progressive Web Apps today</span>
+          </div>
+          <div class="close">
+            <button type="button" id="close-install-dialog">
+              <img src="src/img/install/close.svg">
+            </button>
+          </div>
+        </header>
+
+        <div class="screenshots">
+          <div class="back">
+            <button type="button" id="back-button">
+              <img src="src/img/install/arrow-forward.svg">
+            </button>
+          </div>
+          <div class="scroll-div">
+            <div>
+              <img src="src/img/screenshots/shot1.png" class="narrow">
+              <img src="src/img/screenshots/shot2.png" class="narrow">
+              <img src="src/img/screenshots/shot3.png" class="narrow">
+              <img src="src/img/screenshots/shot4.png" class="narrow">
+              <img src="src/img/screenshots/shot5.png" class="narrow">
+              <img src="src/img/screenshots/shot6.png" class="narrow">
+              <img src="src/img/screenshots/shot7.png" class="wide">
+              <img src="src/img/screenshots/shot8.png" class="wide">
+            </div>
+          </div>
+          <div class="forward">
+            <button type="button" id="forward-button">
+              <img src="src/img/install/arrow-forward.svg">
+            </button>
+          </div>
+        </div>
+      </section>
+    </dialog>
+
+    <dialog id="sensor-dialog">
+      <section>
+
+        <footer>
+          <material-button id="close-sensor-dialog" label="Close"></material-button>
+        </footer>
+      </section>
+    </dialog>
+
+
+    <dialog id="geolocation-dialog">
+      <section>
+
+        <footer>
+          <material-button id="close-geolocation-dialog" label="Close" raised></material-button>
+        </footer>
+      </section>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+    <script src="sw-registration.js"></script>
+    <script src="src/lib/prism.js"></script>
+    
+    
+      <script type="module">
+        import {getSheetTemplate as getInstallSheetTemplate} from 'src/templates/installsheet.js';
+
+
+
+  const hasInstalledRelatedApps = 'getInstalledRelatedApps' in navigator && (await navigator.getInstalledRelatedApps()).length > 0;
+  const standalone = matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: tabbed)').matches;
+  const isInstalled = hasInstalledRelatedApps || standalone;
+  const installationInfo = document.querySelector('#installation');
+
+  if(installationInfo) {
+    installationInfo.style.display = isInstalled ? 'none' : 'block';
+  }
+
+  const installButton = document.querySelector('#install-button');
+  const installDialog = document.querySelector('#install-dialog');
+  const closeButton = document.querySelector('#close-install-dialog');
+  const backButton = document.querySelector('#back-button');
+  const forwardButton = document.querySelector('#forward-button');
+  const expandButton = document.querySelector('#expand-feature-grid');
+  const screenShots = document.querySelector('#install-dialog .screenshots');
+  const scrollDiv = screenShots.querySelector('#install-dialog .screenshots .scroll-div');
+  let curPos;
+
+  const supportsInstallPrompt = 'onbeforeinstallprompt' in window;
+
+  window.addEventListener('load', e => {
+    if(installButton) {
+      installButton.disabled = window.deferredPrompt === undefined ? supportsInstallPrompt : false;
+    }
+  });
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+
+    if(installButton) {
+      installButton.disabled = false;
+    }
+  });
+
+  expandButton.addEventListener('click', e => {
+    const featureGrid = document.querySelector('.feature-grid');
+
+    document.startViewTransition({
+      update: () => {
+        featureGrid.classList.toggle('expanded');
+      },
+      types: ['expand-feature-grid']
+    });
+  });
+
+  if(installButton) {
+    if(!supportsInstallPrompt) {
+      const template = getInstallSheetTemplate();
+
+      if(!installDialog.querySelector('.body')) {
+        screenShots.insertAdjacentHTML('beforebegin', template);
+      }
+    }
+
+    installButton.addEventListener('click', () => {
+      if(window.deferredPrompt) {
+        window.deferredPrompt.prompt();
+      }
+      else if(!supportsInstallPrompt) {
+        curPos = 0;
+        scrollDiv.scrollLeft = 0;
+        installDialog.showModal();
+        installDialog.querySelector('.body').scrollTop = 0;
+
+        setTimeout(() => {
+          installDialog.setAttribute('opened', '');
+        })
+      }
+    });
+  }
+
+  installDialog.addEventListener('transitionend', (e) => {
+    if(!installDialog.hasAttribute('opened')) {
+      installDialog.close();
+    }
+  });
+
+  closeButton.addEventListener('click', e => {
+    installDialog.removeAttribute('opened');
+
+    // fix for < iOS 17.2, when the install dialog is shown and closed the user can no longer scroll the page
+    // by removing overflow:hidden from the main content and reapplying it with a short delay this is fixed
+    const mainContent = document.querySelector('#main-content');
+    mainContent.style.overflow = 'auto';
+    setTimeout(() => {
+      mainContent.style.overflow = 'hidden';
+    }, 100);
+  });
+
+  backButton.addEventListener('click', e => {
+    curPos = Math.max(scrollDiv.scrollLeft - 276, 0);
+    scrollDiv.scrollTo({left: curPos, behavior:'smooth'});
+  });
+
+  forwardButton.addEventListener('click', e => {
+    curPos = Math.min(scrollDiv.scrollLeft + 276, 552);
+    scrollDiv.scrollTo({left: curPos, behavior:'smooth'});
+  });
+
+  window.addEventListener('appinstalled', e => {
+    if(installButton) {
+      installButton.disabled = true;
+    }
+  });
+
+      </script>
+  </body>
+</html>
